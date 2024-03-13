@@ -1,0 +1,16 @@
+input{
+    width:500px;
+}
+
+textarea{
+    width: 500px;
+    height: 150px;
+}
+.form_container{
+    width: 100%;
+    justify-content: center;  
+}
+button{
+    width: 200px;
+
+}

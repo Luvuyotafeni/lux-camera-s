@@ -1,0 +1,16 @@
+.home_container{
+    margin: 200px 100px;
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    height: 100%;
+}
+.name{
+    font-size:40px ;
+}
+.company_name{
+    margin:100px;
+}
+.top{
+    top: 0;
+}

@@ -1,0 +1,10 @@
+.info_container{
+    display: flex;
+    margin: 50px;
+}
+.about_info{
+    margin: 50px;
+}
+.top{
+    top: 0;
+}

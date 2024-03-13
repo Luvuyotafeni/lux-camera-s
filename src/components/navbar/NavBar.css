@@ -1,0 +1,151 @@
+header {
+    background-color: white;
+    height: 10vh;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+    color: black;
+  }
+  
+  li {
+    list-style: none;
+    margin: 30px;
+    margin-top: 10px;
+    text-align: center;
+    position: relative; /* Add this line to enable positioning of the pseudo-element */
+  }
+  
+  ul {
+    display: flex;
+    align-content: center;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+  }
+  .logo{
+    width: 40px;
+    height: 40px;
+    border-radius: 10%;
+    margin-top: 0px;
+    margin-left: 20px;
+  }
+  
+  /* Add this block for the hover effect */
+  li:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #000; /* Change the color to your preference */
+    bottom: 0;
+    left: 0;
+  }
+  
+  .products .box {
+    padding: 20px;
+    size: 20%;
+    border: #000;
+    margin-top: 50px;
+    max-width: 200px;
+}
+.products .box h2 {
+    margin: 20px 0 20px 0;
+}
+.products .heading h2{
+    font-size: 40px;
+}
+.products .box p {
+    word-spacing: 1px;
+    transition: 0.5s;
+    font-size: smaller;
+}
+
+.products .products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+  
+.products .products-box {
+    width: 30%; 
+    height: fit-content;
+    margin: 10px; 
+    box-sizing: border-box;
+}
+
+.login{
+    width:100px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    background-color: #000;
+}
+.login::after{
+    background-color: #000;
+}
+.login:hover{
+    background-color: #665a5a;
+}
+
+/* LoginPopup.css */
+
+.login-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .popup-content h2 {
+    margin-bottom: 15px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  label {
+    margin-bottom: 10px;
+  }
+  
+  input {
+    padding: 8px;
+    margin: 5px 0;
+    width: 20px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  
+
+  
+  /* Add more styling as needed */
+  
