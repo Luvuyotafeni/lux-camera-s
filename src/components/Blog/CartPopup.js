@@ -1,29 +1,14 @@
-
 import React from 'react';
 import './CartPopip.css'; 
 
-const CartPopup = ({ onClose }) => {
+const CartPopup = ({ product, onClose }) => {
   return (
-    <div className='cart-popup'>
-      <div className='popup-content'>
-        <h2>Shipping Information</h2>
-        <form>
-          <label>
-            Name:
-            <input type='text' name='name' />
-          </label>
-          <label>
-            Surname:
-            <input type='text' name='name' />
-          </label>
-          <label>
-            Address:
-            <input type='text' name='name' />
-          </label>
-          
-          <button type='submit'>Submit</button>
-        </form>
-        <button onClick={onClose}>Close</button>
+    <div className='info-popup'>
+      <div className='info-popup-content'>
+        <h2>{product.title}</h2>
+        <p>Description: {product.desc}</p>
+        <p>Price: R{product.price}</p>
+        <p>Rating: {product.rating}</p>
       </div>
     </div>
   );

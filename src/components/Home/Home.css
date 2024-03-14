@@ -1,5 +1,6 @@
 .home_container{
     margin: 200px 100px;
+    top: 200px;
     display: flex;
     width: 90%;
     justify-content: center;
