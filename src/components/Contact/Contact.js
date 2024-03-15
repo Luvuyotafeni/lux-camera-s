@@ -14,26 +14,26 @@ const Contact = () => {
                         <label>Name</label>
                         </div>
                         <div>
-                        <input type='text'></input>
+                        <input type='text' className='contact_input'></input>
                         </div>
                     </div>
                     <div>
                         <div>
                         <label>Surname</label>
                         </div>
-                        <input type='text'></input>
+                        <input type='text' className='contact_input'></input>
                     </div>
                     <div>
                         <div>
                         <label>Email</label>
                         </div>
-                        <input type='email'></input>
+                        <input type='email' className='contact_input'></input>
                     </div>
                     <div>
                         <div>
                         <label>Subject</label>
                         </div>
-                        <input type='text'></input>
+                        <input type='text' className='contact_input'></input>
                     </div>
                     <div>
                         <div>

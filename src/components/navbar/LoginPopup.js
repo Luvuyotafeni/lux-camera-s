@@ -10,13 +10,13 @@ const LoginPopup = ({ onClose }) => {
                 <div>           
                     <label>Username</label>
                 </div>
-                <input type='text'></input>
+                <input type='text' className='logIn_input'></input>
             </div>
             <div>
                 <div>           
                     <label>PASSWORD</label>
                 </div>
-                <input type='text'></input>
+                <input type='text' className='logIn_input'></input>
             </div>
           <button type='submit'>Login</button>
         </form>
