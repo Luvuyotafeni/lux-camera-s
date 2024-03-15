@@ -4,7 +4,8 @@ import image3 from "./assets/download (2).jpg"
 import image4 from "./assets/nikon_z8.jpeg"
 import image5 from "./assets/canonR1018to150mmKit.png"
 import image6 from "./assets/canon eOS 700D.jpg"
-
+import image7 from "./assets/Caon EOS R5.jpg"
+import image8 from "./assets/CANON EOS-1D X MARK III.jpg"
 
 const data = [
     {
@@ -58,17 +59,17 @@ const data = [
     },
     {
       id: 6,
-      image: image6,
-      title: "canonR1018",
-      desc: "18 megapixel CMOS, Great low light shots, High speed shooting, Continuous AF in Movies,Stunning 1080p movies",
+      image: image7,
+      title: "Caon EOS R5",
+      desc: "45 megapixel resolution, Full Frame 4K/120P video, 20 frames per second, New IBIS HIGH RESOLUTION,CFexpress and SD card slots",
       price: 79233.99,
       rating: 4.5,
     },
     {
       id: 6,
-      image: image6,
-      title: "canonR1018",
-      desc: "18 megapixel CMOS, Great low light shots, High speed shooting, Continuous AF in Movies,Stunning 1080p movies",
+      image: image8,
+      title: "CANON EOS-1D X MARK III",
+      desc: "20 megapixel full-frame senso, 5.5K Raw video, DIGIC X image processor, Dual Pixel CMOS AF",
       price: 79233.99,
       rating: 4.5,
     },
