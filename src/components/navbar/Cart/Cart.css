@@ -1,44 +1,93 @@
 /* Cart.css */
 
 .cart-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .cart {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    position: relative;
-    width: 300px;
-  }
-  
-  .bx-x{
-    font-size: 200px;
-  }
-  .close-cart {
-    position: absolute;
-    top: -40px; /* Adjust as needed */
-    right: -70px; /* Adjust as needed */
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: rgb(88, 61, 61);
-  }
-  
-  .close-cart i {
-    font-size: 24px;
-    color: #333;
-  }
-  
-  h2 {
-    margin-bottom: 20px;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.cart {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  width: 300px;
+}
+
+.close-cart {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: -40px; /* Adjust as needed */
+  right: -70px; /* Adjust as needed */
+}
+
+.close-cart i {
+  font-size: 24px;
+  color: #333;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adjust as needed */
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.item-info {
+  flex-grow: 1;
+}
+
+.item-info h3 {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.item-info p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.delete_button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.delete_button button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 60px;
+}
+
+/* Adjust styles as needed */
