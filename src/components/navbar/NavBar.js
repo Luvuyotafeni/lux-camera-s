@@ -1,28 +1,36 @@
 // NavBar.js
-
 import React, { useState, useEffect } from 'react';
 import './NavBar.css';
 import logo from './assets/360_F_267864844_dvb1vERRCid4YFvUKrYDRrqeGB7yn8iG.jpg';
-import LoginPopup from './LoginPopup'; // Import the LoginPopup component
+import LoginPopup from './LoginPopup';
 import Cart from './Cart/Cart';
+import Blog from '../Blog/Blog'; // Import Blog component
 
 const NavBar = () => {
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [cartItemCount, setCartItemCount] = useState(0);
 
   useEffect(() => {
-    // Retrieve cart items from Local Storage on component mount
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
       try {
-        setCartItems(JSON.parse(storedCart)); // Parse JSON string to array
+        const parsedCart = JSON.parse(storedCart);
+        setCartItems(parsedCart);
+        setCartItemCount(parsedCart.length);
       } catch (error) {
         console.error('Error parsing cart data from Local Storage:', error);
-        // Handle parsing errors (optional: clear cart or notify user)
       }
     }
-  }, []); // Run only once on component mount
+  }, []);
+
+  // Function to update cart items and count
+  const updateCart = (newCartItems) => {
+    setCartItems(newCartItems);
+    setCartItemCount(newCartItems.length);
+    localStorage.setItem('cart', JSON.stringify(newCartItems));
+  };
 
   const handleToggleCart = () => {
     setShowCart(!showCart);
@@ -35,8 +43,6 @@ const NavBar = () => {
   const handleCloseLoginPopup = () => {
     setShowLoginPopup(false);
   };
-
-  const cartItemCount = cartItems.length;
 
   return (
     <div>
@@ -60,9 +66,9 @@ const NavBar = () => {
           <button className='login' onClick={handleShowLoginPopup}>Login</button>
         </div>
       </header>
-      {showCart && <Cart onClose={handleToggleCart} setCartItems={setCartItems} />}
-      
+      {showCart && <Cart onClose={handleToggleCart} updateCartCount={setCartItemCount} />}
       {showLoginPopup && <LoginPopup onClose={handleCloseLoginPopup} />}
+      <Blog updateCartCount={setCartItemCount} />
     </div>
   );
 };

@@ -1,11 +1,11 @@
+// Blog.js
 import React, { useState, useEffect } from 'react';
 import data from './products_api'; // Assuming products data in a separate file
 import Card from './card';
 import './Blog.css';
 
-const Blog = () => {
+const Blog = ({ updateCartCount }) => { // Pass the updateCartCount function as a prop
   const [cart, setCart] = useState([]); // Initialize empty cart state
-  const [cartItemCount, setCartItemCount] = useState(0); // Initialize cart item count state
 
   useEffect(() => {
     // Retrieve cart items from Local Storage on component mount
@@ -14,18 +14,12 @@ const Blog = () => {
       try {
         const parsedCart = JSON.parse(storedCart);
         setCart(parsedCart); // Parse JSON string to array
-        updateCartItemCount(parsedCart);
       } catch (error) {
         console.error('Error parsing cart data from Local Storage:', error);
         // Handle parsing errors (optional: clear cart or notify user)
       }
     }
   }, []); // Run only once on component mount
-
-  const updateCartItemCount = (cartItems) => {
-    const totalCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-    setCartItemCount(totalCount);
-  };
 
   const addToCart = (product, event) => {
     event.preventDefault(); // Prevent the default form submission behavior
@@ -38,12 +32,12 @@ const Blog = () => {
         const updatedCart = prevCart.map((item) =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
-        setCartItemCount(cartItemCount + 1); // Increment cart item count
+        updateCartCount(updatedCart.length); // Update cart item count in navbar
         return updatedCart;
       } else {
         // Add new item to cart with quantity 1
         const updatedCart = [...prevCart, { ...product, quantity: 1 }];
-        setCartItemCount(cartItemCount + 1); // Increment cart item count
+        updateCartCount(prevCart.length + 1); // Update cart item count in navbar
         return updatedCart;
       }
     });

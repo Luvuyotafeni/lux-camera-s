@@ -1,29 +1,35 @@
+// Cart.js
 import React, { useState, useEffect } from 'react';
 import './Cart.css';
 
-const Cart = ({ onClose }) => {
+const Cart = ({ onClose, updateCartCount }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
-    // Retrieve cart items from Local Storage on component mount
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
       try {
-        setCartItems(JSON.parse(storedCart)); // Parse JSON string to array
+        const parsedCart = JSON.parse(storedCart);
+        setCartItems(parsedCart);
+        setTotalItems(parsedCart.length);
       } catch (error) {
         console.error('Error parsing cart data from Local Storage:', error);
-        // Handle parsing errors (optional: clear cart or notify user)
       }
     }
-  }, []); // Run only once on component mount
+  }, []);
 
   const removeFromCart = (index) => {
     setCartItems((prevCartItems) => {
       const updatedCart = [...prevCartItems];
-      updatedCart.splice(index, 1); // Remove item at the specified index
+      updatedCart.splice(index, 1);
       localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local storage
+      setTotalItems(updatedCart.length);
       return updatedCart;
     });
+
+    // Update cart count in NavBar
+    updateCartCount(prevCount => prevCount - 1);
   };
 
   return (
@@ -43,13 +49,14 @@ const Cart = ({ onClose }) => {
                   <p>Price: R{item.price}</p>
                   <p>Quantity: {item.quantity}</p>
                   <div className='delete_button'>
-                  <button onClick={() => removeFromCart(index)}><i class='bx bxs-trash'></i></button>
+                    <button onClick={() => removeFromCart(index)}><i className='bx bxs-trash'></i></button>
                   </div>
                 </div>
               </div>
             ))
           )}
         </div>
+        <p>Total Items: {totalItems}</p>
       </div>
     </div>
   );
