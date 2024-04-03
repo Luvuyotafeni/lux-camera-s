@@ -264,7 +264,7 @@ h2 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   header{
-    width: 500px
+    width: 400px
   }
   .menu-links.show {
     display: flex;
@@ -277,5 +277,19 @@ h2 {
 
   .close-icon {
     display: none;
+  }
+  .logo{
+    margin-left: 0%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  header{
+    left: 0;
+    padding: 0;
+  }
+  .logo{
+    margin:0;
+    padding: 0;
+    width: 60px;
   }
 }

@@ -61,4 +61,15 @@
     background-color: #ddd;
     border: 1px solid #ccc;
   }
-  
+  @media only screen and (max-width: 768px) {
+    .products .products-box {
+      width: 45%; /* Adjust width for smaller screens */
+      margin: 10px 2.5%; /* Adjust margin for smaller screens */
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .products .products-box {
+      width: 90%; /* Adjust width for even smaller screens */
+      margin: 10px auto; /* Center products and adjust margin for even smaller screens */
+    }
+  }

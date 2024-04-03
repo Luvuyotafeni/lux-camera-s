@@ -50,3 +50,43 @@
   .bxl-instagram{
     margin: 20px;
   }
+  /* Media Query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: row; /* Revert to row layout for larger screens */
+    justify-content: space-around;
+  }
+
+  .footer-links ul {
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin: 0 10px; /* Adjust margin for smaller screens */
+  }
+}
+/* Media Query for even smaller screens */
+@media only screen and (max-width: 480px) {
+  .social-media a {
+    font-size: 14px; /* Further decrease font size for even smaller screens */
+
+  }
+  .footer-links ul {
+    margin: 0;
+  }
+  .footer-links li {
+    margin: 0 10px; /* Adjust margin for smaller screens */
+    font-size: xx-small;
+  }
+  .sub_btn{
+    width: 60px;
+    font-size: xx-small;
+  }
+  .sbs{
+    font-size: xx-small;
+  }
+  .input{
+    width: 80px;
+    font-size: xx-small;
+  }
+}

@@ -69,8 +69,9 @@ const NavBar = ({ updateCartCount }) => {
               </a>
             </li>
             <li><a href='#contact'>Enquire</a></li>
+            {/* Login button within menu for smaller screens */}
+            <li><button className='login' onClick={handleShowLoginPopup}>Login</button></li>
           </ul>
-          <button className='login' onClick={handleShowLoginPopup}>Login</button>
         </div>
       </header>
       {showCart && <Cart onClose={handleToggleCart} cartItems={cartItems} updateCart={updateCart} />}

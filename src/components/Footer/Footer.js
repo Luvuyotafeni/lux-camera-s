@@ -7,10 +7,10 @@ const Footer = () => {
         <footer className='footer'>
             <div className='container'>
                 <div>
-                <label>Subscribe to newsletter</label>
+                <label className='sbs'>Subscribe to newsletter</label>
                 <div>
                 <input type='email' placeholder='Enter your email' className='input'/>
-                <button type='submit'>Subscribe</button>
+                <button type='submit' className='sub_btn'>Subscribe</button>
                 </div>
                 </div>
                 <div className='footer-links'>
