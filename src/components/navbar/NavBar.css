@@ -8,6 +8,22 @@ header {
     color: black;
   }
   
+/* Style for menu icon */
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+}
+
+/* Style for close icon */
+.close-icon {
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+}
+
+  
   li {
     list-style: none;
     margin: 30px;
@@ -233,4 +249,33 @@ h2 {
   padding: 2px 5px;
   border-radius: 50%;
   display: inline-block; /* Ensure the counter appears inline */
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 600px) {
+  .menu-links {
+    display: none; /* Hide menu links by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  header{
+    width: 500px
+  }
+  .menu-links.show {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .close-icon {
+    display: none;
+  }
 }

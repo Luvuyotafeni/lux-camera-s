@@ -15,3 +15,33 @@ button{
     background-color: rgb(110, 158, 148);
 
 }
+/* Media Query for smaller screens */
+@media only screen and (max-width: 768px) {
+    .contact_input,
+    textarea,
+    button {
+      width: 90%; /* Adjust width for smaller screens */
+      max-width: 500px; /* Limit width for smaller screens */
+      margin: 10px auto; /* Center input fields and button */
+    }
+  
+    textarea {
+      height: 100px; /* Reduce height for smaller screens */
+    }
+  }
+  
+  /* Media Query for even smaller screens */
+  @media only screen and (max-width: 480px) {
+    .contact_input,
+    textarea,
+    button {
+      width: 90%; /* Adjust width for even smaller screens */
+      max-width: 400px; /* Limit width for even smaller screens */
+      padding: 10px;
+      margin-top: 20px;
+    }
+  
+    textarea {
+      height: 80px; /* Further reduce height for even smaller screens */
+    }
+  }

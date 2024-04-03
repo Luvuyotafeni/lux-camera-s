@@ -10,8 +10,8 @@ const home = () => {
                 <div className='company_name'>
                     <p className='name'>Lux's Camera's</p>
                 </div>
-                <div className='home_img'>
-                    <img src={homepic}>
+                <div >
+                    <img src={homepic} className='home_img'>
                     </img>
                 </div>
             </div>

@@ -1,15 +1,15 @@
-// NavBar.js
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './NavBar.css';
 import logo from './assets/360_F_267864844_dvb1vERRCid4YFvUKrYDRrqeGB7yn8iG.jpg';
 import LoginPopup from './LoginPopup';
 import Cart from './Cart/Cart';
 
 const NavBar = ({ updateCartCount }) => {
-  const [showLoginPopup, setShowLoginPopup] = useState(false);
-  const [showCart, setShowCart] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
-  const [cartItemCount, setCartItemCount] = useState(0);
+  const [showLoginPopup, setShowLoginPopup] = React.useState(false);
+  const [showCart, setShowCart] = React.useState(false);
+  const [cartItems, setCartItems] = React.useState([]);
+  const [cartItemCount, setCartItemCount] = React.useState(0);
+  const [showMenu, setShowMenu] = React.useState(false); // State to manage the visibility of the menu on smaller screens
 
   useEffect(() => {
     const storedCart = localStorage.getItem('cart');
@@ -45,6 +45,10 @@ const NavBar = ({ updateCartCount }) => {
     setShowLoginPopup(false);
   };
 
+  const handleToggleMenu = () => {
+    setShowMenu(!showMenu); // Toggle the state to show/hide the menu
+  };
+
   return (
     <div>
       <header>
@@ -52,7 +56,9 @@ const NavBar = ({ updateCartCount }) => {
           <div>
             <img src={logo} className='logo' alt='Logo'></img>
           </div>
-          <ul>
+          {/* Toggle menu icon */}
+          <i className={showMenu ? 'bx bx-x menu-icon' : 'bx bx-menu menu-icon'} onClick={handleToggleMenu}></i>
+          <ul className={showMenu ? 'menu-links show' : 'menu-links'}>
             <li><a href='#home'>Home</a></li>
             <li><a href='#about'>About</a></li>
             <li><a href='#products'>Products</a></li>
