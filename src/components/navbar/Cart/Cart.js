@@ -1,35 +1,37 @@
-// Cart.js
 import React, { useState, useEffect } from 'react';
 import './Cart.css';
 
-const Cart = ({ onClose, updateCartCount }) => {
+const Cart = ({ onClose }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
+    // Retrieve cart items from Local Storage on component mount
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
       try {
-        const parsedCart = JSON.parse(storedCart);
-        setCartItems(parsedCart);
-        setTotalItems(parsedCart.length);
+        setCartItems(JSON.parse(storedCart)); // Parse JSON string to array
+        setTotalItems(JSON.parse(storedCart).length); // Set total items count
       } catch (error) {
         console.error('Error parsing cart data from Local Storage:', error);
+        // Handle parsing errors (optional: clear cart or notify user)
       }
     }
-  }, []);
+  }, []); // Run only once on component mount
 
   const removeFromCart = (index) => {
     setCartItems((prevCartItems) => {
       const updatedCart = [...prevCartItems];
-      updatedCart.splice(index, 1);
+      updatedCart.splice(index, 1); // Remove item at the specified index
       localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local storage
-      setTotalItems(updatedCart.length);
+      setTotalItems(updatedCart.length); // Update total items count
       return updatedCart;
     });
+  };
 
-    // Update cart count in NavBar
-    updateCartCount(prevCount => prevCount - 1);
+  const handleCheckout = () => {
+    // Implement your checkout logic here
+    console.log('Checkout clicked!');
   };
 
   return (
@@ -56,7 +58,12 @@ const Cart = ({ onClose, updateCartCount }) => {
             ))
           )}
         </div>
-        <p>Total Items: {totalItems}</p>
+        <p>Total Items: {totalItems}</p> {/* Display total items count */}
+        {totalItems > 0 && (
+          <button className="checkout-button" onClick={handleCheckout}>
+            Checkout
+          </button>
+        )}
       </div>
     </div>
   );

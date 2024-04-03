@@ -4,9 +4,8 @@ import './NavBar.css';
 import logo from './assets/360_F_267864844_dvb1vERRCid4YFvUKrYDRrqeGB7yn8iG.jpg';
 import LoginPopup from './LoginPopup';
 import Cart from './Cart/Cart';
-import Blog from '../Blog/Blog'; // Import Blog component
 
-const NavBar = () => {
+const NavBar = ({ updateCartCount }) => {
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
@@ -19,17 +18,19 @@ const NavBar = () => {
         const parsedCart = JSON.parse(storedCart);
         setCartItems(parsedCart);
         setCartItemCount(parsedCart.length);
+        updateCartCount(parsedCart.length); // Update cart count using updateCartCount prop
       } catch (error) {
         console.error('Error parsing cart data from Local Storage:', error);
       }
     }
-  }, []);
+  }, [updateCartCount]);
 
   // Function to update cart items and count
   const updateCart = (newCartItems) => {
     setCartItems(newCartItems);
     setCartItemCount(newCartItems.length);
     localStorage.setItem('cart', JSON.stringify(newCartItems));
+    updateCartCount(newCartItems.length); // Update cart count using updateCartCount prop
   };
 
   const handleToggleCart = () => {
@@ -66,9 +67,8 @@ const NavBar = () => {
           <button className='login' onClick={handleShowLoginPopup}>Login</button>
         </div>
       </header>
-      {showCart && <Cart onClose={handleToggleCart} updateCartCount={setCartItemCount} />}
+      {showCart && <Cart onClose={handleToggleCart} cartItems={cartItems} updateCart={updateCart} />}
       {showLoginPopup && <LoginPopup onClose={handleCloseLoginPopup} />}
-      <Blog updateCartCount={setCartItemCount} />
     </div>
   );
 };

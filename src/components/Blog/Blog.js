@@ -4,7 +4,7 @@ import data from './products_api'; // Assuming products data in a separate file
 import Card from './card';
 import './Blog.css';
 
-const Blog = ({ updateCartCount }) => { // Pass the updateCartCount function as a prop
+const Blog = () => {
   const [cart, setCart] = useState([]); // Initialize empty cart state
 
   useEffect(() => {
@@ -32,12 +32,10 @@ const Blog = ({ updateCartCount }) => { // Pass the updateCartCount function as 
         const updatedCart = prevCart.map((item) =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
-        updateCartCount(updatedCart.length); // Update cart item count in navbar
         return updatedCart;
       } else {
         // Add new item to cart with quantity 1
         const updatedCart = [...prevCart, { ...product, quantity: 1 }];
-        updateCartCount(prevCart.length + 1); // Update cart item count in navbar
         return updatedCart;
       }
     });
@@ -57,7 +55,7 @@ const Blog = ({ updateCartCount }) => { // Pass the updateCartCount function as 
           </div>
           <div className='products-container'>
             {data.map((val, index) => (
-              <div className='proctucts-box' key={index}>
+              <div className='products-box' key={index}>
                 <Card
                   image={val.image}
                   title={val.title}
