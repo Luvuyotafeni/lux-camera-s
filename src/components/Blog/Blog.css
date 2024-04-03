@@ -61,6 +61,12 @@
     background-color: #ddd;
     border: 1px solid #ccc;
   }
+
+  .products-container{
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+  }
   @media only screen and (max-width: 768px) {
     .products .products-box {
       width: 45%; /* Adjust width for smaller screens */

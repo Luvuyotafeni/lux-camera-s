@@ -91,3 +91,13 @@ h2 {
 }
 
 /* Adjust styles as needed */
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 600px) {
+  .cart {
+    width: 80%; /* Adjust width for smaller screens */
+  }
+  .close-cart {
+    top: -60px; /* Adjust position for smaller screens */
+    right: -100px; /* Adjust position for smaller screens */
+  }
+}
