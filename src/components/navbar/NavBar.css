@@ -88,7 +88,7 @@ header {
   
 .products .products-box {
     width: 30%; 
-    height: fit-content;
+    height: auto;
     margin: 10px; 
     box-sizing: border-box;
 }
